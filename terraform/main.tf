@@ -76,7 +76,7 @@ resource "aws_instance" "myapp-server" {
     ami = "ami-03aefa83246f44ef2"
     instance_type = var.instance_type
 
-    subnet_id = var.subnet_id
+    subnet_id = aws_subnet.myapp-subnet-1.id
     vpc_security_group_ids = [aws_security_group.myapp-sg.id]
     availability_zone = var.avail_zone
 
