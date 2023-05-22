@@ -3,10 +3,10 @@
 pipeline {
     agent any
     tools {
-        nodejs 'my-nodejs'
+        nodejs 'nodejs-19.9.0'
     }
     environment {
-        IMAGE_NAME = 'mojoe277/nodejs-app:njr-1.0'
+        IMAGE_NAME = 'njr-1.0'
     }
     stages {
         stage('build') {
