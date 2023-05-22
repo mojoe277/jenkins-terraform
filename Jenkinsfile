@@ -6,7 +6,7 @@ pipeline {
         nodejs 'nodejs-19.9.0'
     }
     environment {
-        IMAGE_NAME = 'njr-1.0'
+        IMAGE_NAME = 'njr-2.0'
     }
     stages {
         stage('build') {
@@ -22,9 +22,9 @@ pipeline {
                 script {
                     echo "building the docker image..."
                     withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-                        sh 'docker build -t ${IMAGE_NAME} .'
+                        sh 'docker build -t mojoe277/nodejs-k8s:${IMAGE_NAME} .'
                         sh "echo $PASS | docker login -u $USER --password-stdin"
-                        sh 'docker push ${IMAGE_NAME}'
+                        sh 'docker push mojoe277/nodejs-k8s:${IMAGE_NAME}'
     }
                 }
             }
