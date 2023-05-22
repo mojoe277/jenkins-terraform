@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+    nodejs-react-app:  
+      image: ${IMAGE}
+      ports:
+        - 8080:8080
+    postgres:
+      image: postgres
+      ports:
+        - 5432:5432
+      environment:
+        - POSTGRES_PASSWORD=my-pwd  
