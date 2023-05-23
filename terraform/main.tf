@@ -73,7 +73,7 @@ output "ec2_public_ip" {
 }
 
 resource "aws_instance" "myapp-server" {
-    ami = "ami-03aefa83246f44ef2"
+    ami = "ami-014571f1593b7be25"
     instance_type = var.instance_type
 
     subnet_id = aws_subnet.myapp-subnet-1.id
